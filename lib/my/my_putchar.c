@@ -7,12 +7,12 @@
 
 #include "includes.h"
 
-void                my_putchar_fd(byte c, int fd)
+void my_putchar_fd(byte c, int fd)
 {
     write(fd, &c, 1);
 }
 
-void                my_putchar(char c)
+void my_putchar(char c)
 {
     my_putchar_fd(c, 1);
 }

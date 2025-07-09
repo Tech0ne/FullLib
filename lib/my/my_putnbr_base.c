@@ -7,7 +7,7 @@
 
 #include "includes.h"
 
-void                my_putnbr_base_fd(int nbr, const char *base, int fd)
+void my_putnbr_base_fd(int nbr, const char *base, int fd)
 {
     if (nbr < 0) {
         my_putchar_fd('-', fd);
@@ -22,7 +22,7 @@ void                my_putnbr_base_fd(int nbr, const char *base, int fd)
     my_putchar_fd(base[nbr % my_strlen(base)], fd);
 }
 
-void                my_putnbr_base(int nbr, const char *base)
+void my_putnbr_base(int nbr, const char *base)
 {
     my_putnbr_base_fd(nbr, base, 1);
 }

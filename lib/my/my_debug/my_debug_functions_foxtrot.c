@@ -7,13 +7,13 @@
 
 #include "../includes.h"
 
-static void         dev_debug_print_special_char(char c, int fd)
+static void dev_debug_print_special_char(char c, int fd)
 {
     switch (c) {
-        case 0: my_putchar_fd('0', fd); return;
-        case 7: my_putchar_fd('a', fd); return;
-        case 8: my_putchar_fd('b', fd); return;
-        case 9: my_putchar_fd('t', fd); return;
+        case 0:  my_putchar_fd('0', fd); return;
+        case 7:  my_putchar_fd('a', fd); return;
+        case 8:  my_putchar_fd('b', fd); return;
+        case 9:  my_putchar_fd('t', fd); return;
         case 10: my_putchar_fd('n', fd); return;
         case 11: my_putchar_fd('v', fd); return;
         case 12: my_putchar_fd('f', fd); return;
@@ -24,7 +24,7 @@ static void         dev_debug_print_special_char(char c, int fd)
     my_putnbr_base_fd((int)c, "0123456789abcdef", fd);
 }
 
-void                debug_print_string(void *val, int fd)
+void debug_print_string(void *val, int fd)
 {
     char *str = *(char **)val;
     my_putchar_fd('"', fd);
@@ -41,21 +41,19 @@ void                debug_print_string(void *val, int fd)
     my_putchar_fd('"', fd);
 }
 
-void                debug_print_pointer(void *val, int fd)
+void debug_print_pointer(void *val, int fd)
 {
     unsigned long long ptr = *(unsigned long long *)&val;
     my_putstr_fd("0x", fd);
-    char *base = "0123456789abcdef";
+    char              *base    = "0123456789abcdef";
     unsigned long long basenum = my_strlen(base);
-    if (basenum == 0)
-        return;
-    unsigned long long rest = ptr;
+    if (basenum == 0) return;
+    unsigned long long rest  = ptr;
     unsigned long long power = 1;
-    while ((rest / power) > basenum)
-        power *= basenum;
+    while ((rest / power) > basenum) power *= basenum;
     while (power > 0) {
         my_putchar_fd(base[rest / power], fd);
-        rest %= power;
+        rest  %= power;
         power /= basenum;
     }
 }

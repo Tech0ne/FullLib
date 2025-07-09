@@ -7,13 +7,13 @@
 
 #include "includes.h"
 
-void                free_char_map(char **map)
+void free_char_map(char **map)
 {
     for (int i = 0; map[i]; i++) free(map[i]);
     free(map);
 }
 
-void                free_int_map(int **map)
+void free_int_map(int **map)
 {
     for (int i = 0; map[i]; i++) free(map[i]);
     free(map);

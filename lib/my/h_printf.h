@@ -6,10 +6,10 @@
 */
 
 #ifndef INCLUDED_LIB_PRINTF_H
-    #define INCLUDED_LIB_PRINTF_H
+#define INCLUDED_LIB_PRINTF_H
 
-    #include <stdarg.h>
-    #include <stdio.h>
+#include <stdarg.h>
+#include <stdio.h>
 
 //---------------------------------- SYNTAX -----------------------------------
 // This reproduction of the printf function use a sytax which is a little
@@ -27,25 +27,28 @@
 
 /// @brief Here it is, the printf remake. It use another syntax, see h_printf.h
 /// @param format The formater string. Syntax is described in h_printf.h
-void                my_printf(char *format, ...);
+void my_printf(char *format, ...);
 
 /// @brief Printf into a file descriptor
 /// @param fd Target file descriptor
 /// @param format The formater string. Syntax is described in h_printf.h
-void                my_fprintf(int fd, char *format, ...);
+void my_fprintf(int fd, char *format, ...);
 
 /// @brief Write out the output of this printf into a FILE pointer
 /// @param ptr The target FILE pointer
 /// @param format The formater string. Syntax is described in h_printf.h
-void                my_file_printf(FILE *ptr, char *format, ...);
+void my_file_printf(FILE *ptr, char *format, ...);
 
-void                dev_printf_display_format(char *format, int *index,
-    va_list args, int fd);
+void dev_printf_display_format(char *format, int *index, va_list args, int fd);
 
-void                display_basic_object_alpha(va_list args,
-    variable_type type, char *formater, int fd);
-void                dev_printf_display_from_type(va_list args,
-    variable_type type, char *formater, int fd);
+void display_basic_object_alpha(va_list       args,
+                                variable_type type,
+                                char         *formater,
+                                int           fd);
+void dev_printf_display_from_type(va_list       args,
+                                  variable_type type,
+                                  char         *formater,
+                                  int           fd);
 
 // This was like a side quest. Re make the "hexyl" command.
 // It works quite well, not gonna lie
@@ -53,24 +56,20 @@ void                dev_printf_display_from_type(va_list args,
 // The fact that you need to specify the length comes from the fact that it can
 // be used with binary files. Better not stop only when u get a 0 val on bin.
 // But, of course, specifying a -1 as the length let u stop when u meet a 0
-void                my_hexyl_fd(char *string, int length, int fd);
-    #define my_hexyl(string, length) my_hexyl_fd(string, length, 1)
+void my_hexyl_fd(char *string, int length, int fd);
+#define my_hexyl(string, length) my_hexyl_fd(string, length, 1)
 // End of the side quest
 
-void                printf_print_uint(unsigned int i, char *formater, int fd);
-void                printf_print_int(int i, char *formater, int fd);
-void                printf_print_ulint(unsigned long int i, char *formater,
-    int fd);
-void                printf_print_lint(long int i, char *formater, int fd);
-void                printf_print_ullint(unsigned long long int i,
-    char *formater, int fd);
-void                printf_print_llint(long long int i, char *formater,
-    int fd);
-void                printf_print_double(double d, char *formater, int fd);
-void                printf_print_ldouble(long double d, char *formater,
-    int fd);
-void                printf_print_string(char *s, char *formater, int fd);
-void                printf_print_pointer(void *p, char *formater, int fd);
+void printf_print_uint(unsigned int i, char *formater, int fd);
+void printf_print_int(int i, char *formater, int fd);
+void printf_print_ulint(unsigned long int i, char *formater, int fd);
+void printf_print_lint(long int i, char *formater, int fd);
+void printf_print_ullint(unsigned long long int i, char *formater, int fd);
+void printf_print_llint(long long int i, char *formater, int fd);
+void printf_print_double(double d, char *formater, int fd);
+void printf_print_ldouble(long double d, char *formater, int fd);
+void printf_print_string(char *s, char *formater, int fd);
+void printf_print_pointer(void *p, char *formater, int fd);
 
 //----------------------------------- LIST ------------------------------------
 // ######## TYPES ########

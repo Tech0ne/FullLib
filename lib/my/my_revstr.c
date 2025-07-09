@@ -7,14 +7,14 @@
 
 #include "includes.h"
 
-char               *my_revstr(char *str)
+char *my_revstr(char *str)
 {
-    char *dup = my_strdup(str);
-    int length = my_strlen(dup);
-    char c;
+    char *dup    = my_strdup(str);
+    int   length = my_strlen(dup);
+    char  c;
     for (int i = 0; i < (length / 2); i++) {
-        c = dup[i];
-        dup[i] = dup[length - 1 - i];
+        c                   = dup[i];
+        dup[i]              = dup[length - 1 - i];
         dup[length - 1 - i] = c;
     }
     return dup;

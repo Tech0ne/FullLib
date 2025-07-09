@@ -7,8 +7,8 @@
 
 #include "../includes.h"
 
-void              (*get_debug_function(variable_type type))(void *value,
-    int fd) {
+void (*get_debug_function(variable_type type))(void *value, int fd)
+{
     if (type == VARIABLE_TYPE_UNSIGNED_CHAR) return &debug_print_uchar;
     if (type == VARIABLE_TYPE_SIGNED_CHAR) return &debug_print_char;
     if (type == VARIABLE_TYPE_UNSIGNED_SHORT_INT) return &debug_print_usint;
@@ -29,7 +29,7 @@ void              (*get_debug_function(variable_type type))(void *value,
     return NULL;
 }
 
-static void         show_value(variable_type type, void *value)
+static void show_value(variable_type type, void *value)
 {
     my_putstr(MY_COLOR_YELLOW);
     get_debug_function(type)(value, 1);
@@ -37,7 +37,7 @@ static void         show_value(variable_type type, void *value)
     my_putstr(MY_COLOR_RESET);
 }
 
-void                dev_my_debug(m_box var, int line, char *file)
+void dev_my_debug(m_box var, int line, char *file)
 {
     my_putstr(MY_COLOR_GREY);
     my_putstr(file);
@@ -50,8 +50,7 @@ void                dev_my_debug(m_box var, int line, char *file)
     my_delet_box(var);
 }
 
-void                dev_my_debug_custom(m_box var, int line,
-    char *file, void (*func)(void *))
+void dev_my_debug_custom(m_box var, int line, char *file, void (*func)(void *))
 {
     my_putstr(MY_COLOR_GREY);
     my_putstr(file);

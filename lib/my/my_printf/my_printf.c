@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 
-void                my_printf(char *format, ...)
+void my_printf(char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -19,13 +19,14 @@ void                my_printf(char *format, ...)
         else
             dev_printf_display_format(format, &i, args, STDOUT_FILENO);
         if (i == -1) {
-            my_putstr("Error !"); break;
+            my_putstr("Error !");
+            break;
         }
     }
     va_end(args);
 }
 
-void                my_fprintf(int fd, char *format, ...)
+void my_fprintf(int fd, char *format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -35,15 +36,16 @@ void                my_fprintf(int fd, char *format, ...)
         else
             dev_printf_display_format(format, &i, args, fd);
         if (i == -1) {
-            my_putstr_fd("Error !", fd); break;
+            my_putstr_fd("Error !", fd);
+            break;
         }
     }
     va_end(args);
 }
 
-void                my_file_printf(FILE *ptr, char *format, ...)
+void my_file_printf(FILE *ptr, char *format, ...)
 {
-    int fd = ptr->_fileno;
+    int     fd = ptr->_fileno;
     va_list args;
     va_start(args, format);
     for (int i = 0; format[i]; i++) {
@@ -52,7 +54,8 @@ void                my_file_printf(FILE *ptr, char *format, ...)
         else
             dev_printf_display_format(format, &i, args, fd);
         if (i == -1) {
-            my_putstr_fd("Error !", fd); break;
+            my_putstr_fd("Error !", fd);
+            break;
         }
     }
     va_end(args);

@@ -8,16 +8,18 @@
 #ifndef INCLUDED_GARBAGE_COLLECTOR_H
     #define INCLUDED_GARBAGE_COLLECTOR_H
 
+    #include <stddef.h>
+
 typedef struct _garbage_list {
-    struct _garbage_list *prev;
-    void *ptr;
-    struct _garbage_list *next;
+        struct _garbage_list *prev;
+        void                 *ptr;
+        struct _garbage_list *next;
 } garbage_list;
 
 void gc_cleanup(void);
 
 void *gc_malloc(size_t size);
-void gc_free(void *ptr);
+void  gc_free(void *ptr);
 
 #endif
 

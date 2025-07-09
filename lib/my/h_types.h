@@ -6,7 +6,7 @@
 */
 
 #ifndef INCLUDED_LIB_STRUCTS_H
-    #define INCLUDED_LIB_STRUCTS_H
+#define INCLUDED_LIB_STRUCTS_H
 
 typedef enum variable_type {
     VARIABLE_TYPE_UNSIGNED_CHAR,
@@ -27,10 +27,10 @@ typedef enum variable_type {
 } variable_type;
 
 typedef struct _m_box {
-    char *name;
-    void *value;
-    variable_type type;
-    unsigned long size;
+        char         *name;
+        void         *value;
+        variable_type type;
+        unsigned long size;
 } _m_box;
 
 typedef char byte;

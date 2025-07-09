@@ -7,7 +7,7 @@
 
 #include "includes.h"
 
-void                my_showstr_fd(const char *str, int fd)
+void my_showstr_fd(const char *str, int fd)
 {
     for (int i = 0; str[i]; i++) {
         if (str[i] < 32 || str[i] > 126) {
@@ -19,7 +19,7 @@ void                my_showstr_fd(const char *str, int fd)
     }
 }
 
-void                my_showstr(const char *str)
+void my_showstr(const char *str)
 {
     my_showstr_fd(str, 1);
 }

@@ -7,7 +7,7 @@
 
 #include "includes.h"
 
-bool                my_str_is_letters(const char *str)
+bool my_str_is_letters(const char *str)
 {
     for (int i = 0; str[i]; i++)
         if (str[i] < 'A' || (str[i] > 'Z' && str[i] < 'a') || str[i] > 'z')
@@ -15,34 +15,30 @@ bool                my_str_is_letters(const char *str)
     return true;
 }
 
-bool                my_str_is_numbers(const char *str)
+bool my_str_is_numbers(const char *str)
 {
     for (int i = 0; str[i]; i++)
-        if (str[i] < '0' || str[i] > '9')
-            return false;
+        if (str[i] < '0' || str[i] > '9') return false;
     return true;
 }
 
-bool                my_str_is_upper(const char *str)
+bool my_str_is_upper(const char *str)
 {
     for (int i = 0; str[i]; i++)
-        if (str[i] >= 'a' && str[i] <= 'z')
-            return false;
+        if (str[i] >= 'a' && str[i] <= 'z') return false;
     return true;
 }
 
-bool                my_str_is_lower(const char *str)
+bool my_str_is_lower(const char *str)
 {
     for (int i = 0; str[i]; i++)
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            return false;
+        if (str[i] >= 'A' && str[i] <= 'Z') return false;
     return true;
 }
 
-bool                my_str_isprintable(const char *str)
+bool my_str_isprintable(const char *str)
 {
     for (int i = 0; str[i]; i++)
-        if (str[i] < 32 || str[i] > 126)
-            return false;
+        if (str[i] < 32 || str[i] > 126) return false;
     return true;
 }

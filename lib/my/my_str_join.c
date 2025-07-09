@@ -7,13 +7,11 @@
 
 #include "includes.h"
 
-char               *my_str_join(char **map, const char *join)
+char *my_str_join(char **map, const char *join)
 {
-    if (!map || !map[0])
-        return NULL;
+    if (!map || !map[0]) return NULL;
     int size = 0;
-    for (int i = 0; map[i]; i++)
-        size += my_strlen(map[i]) + my_strlen(join);
+    for (int i = 0; map[i]; i++) size += my_strlen(map[i]) + my_strlen(join);
     size -= my_strlen(join);
     size++;
 

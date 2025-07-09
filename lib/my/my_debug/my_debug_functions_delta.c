@@ -7,7 +7,7 @@
 
 #include "../includes.h"
 
-static void         dev_debug_print_long_long(long long int nbr, int fd)
+static void dev_debug_print_long_long(long long int nbr, int fd)
 {
     if (nbr < 0) {
         my_putchar_fd('-', fd);
@@ -22,13 +22,13 @@ static void         dev_debug_print_long_long(long long int nbr, int fd)
     my_putchar_fd(nbr % 10 + 48, fd);
 }
 
-void                debug_print_long_long(void *val, int fd)
+void debug_print_long_long(void *val, int fd)
 {
     long long int i = *(long long int *)val;
     dev_debug_print_long_long(i, fd);
 }
 
-void                dev_debug_print_float(float val, int fd)
+void dev_debug_print_float(float val, int fd)
 {
     if (val < 0) {
         my_putchar_fd('-', fd);
@@ -46,7 +46,7 @@ void                dev_debug_print_float(float val, int fd)
     }
 }
 
-void                debug_print_float(void *val, int fd)
+void debug_print_float(void *val, int fd)
 {
     float f = *(float *)val;
     dev_debug_print_float(f, fd);
